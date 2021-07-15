@@ -9,11 +9,12 @@ class ClienteController extends Controller
 {
     public function index(){
         $clientes = Cliente::orderBy('id', 'desc')->paginate();
-        return view('clientes.index', compact('Clientes'));
+        return $clientes;
+        /*return view('clientes.index', compact('Clientes'));*/
     }
 
     public function create(){
-        return view('clientes.create');
+        /*return view('clientes.create');*/
     }
 
     public function store(Request $request){
@@ -22,11 +23,13 @@ class ClienteController extends Controller
         $cliente->descripcion = $request->descripcion;
         $cliente->categoria = $request->categoria;
         $cliente->save();
-        return redirect('clientes.show', $cliente);
+        return $cliente;
+        /*return redirect('clientes.show', $cliente);*/
     }
 
     public function show($id){
         $cliente = Cliente::find($id);
-        return view('clientes.show', compact('factura'));
+        return $cliente;
+        /*return view('clientes.show', compact('cliente'));*/
     }
 }

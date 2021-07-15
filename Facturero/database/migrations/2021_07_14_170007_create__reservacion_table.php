@@ -13,9 +13,9 @@ class CreateReservacionTable extends Migration
      */
     public function up()
     {
-        Schema::create('reservacion', function (Blueprint $table) {
+        Schema::create('reservacions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('idCliente')->constrained('cliente');
+            $table->foreignId('idCliente')->constrained('clientes');
             $table->string('cantidadDePersonas');
             $table->dateTime('checkIn');
             $table->dateTime('checkOut');
@@ -31,6 +31,6 @@ class CreateReservacionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reservacion');
+        Schema::dropIfExists('reservacions');
     }
 }

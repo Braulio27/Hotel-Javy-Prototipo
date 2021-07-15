@@ -13,11 +13,11 @@ class CreateFacturaTable extends Migration
      */
     public function up()
     {
-        Schema::create('factura', function (Blueprint $table) {
+        Schema::create('facturas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('idCliente')->constrained('cliente');
+            $table->foreignId('idCliente')->constrained('clientes');
             $table->double('monto');
-            $table->date('fecha');
+            $table->dateTime('fecha');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateFacturaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('factura');
+        Schema::dropIfExists('facturas');
     }
 }

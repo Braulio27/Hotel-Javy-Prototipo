@@ -1,7 +1,10 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\User;
+use App\Models\Cliente;
+use App\Models\Factura;
+use App\Models\Reservacion;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory(10)->create();
+        Cliente::factory(10)->create();
+        Factura::factory(2)->create();
+        Reservacion::factory(2)->create();
     }
 }
